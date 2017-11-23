@@ -1,0 +1,8 @@
+{
+  "name": "material-ui-app",
+  "version": "1.0.0",
+  "description": "Test app using Material UI.",
+  "dependencies": {
+    "material-ui": "^1.0.0-beta.21"
+  }
+}
