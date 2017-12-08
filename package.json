@@ -4,9 +4,12 @@
   "description": "Test app using Material UI.",
   "dependencies": {
     "material-ui": "^1.0.0-beta.21",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "node-sass": "^4.7.2",
     "pug-loader": "^2.3.0",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "sass-loader": "^6.0.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
