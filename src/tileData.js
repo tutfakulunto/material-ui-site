@@ -14,25 +14,49 @@ export const mailFolderListItems = (
       <ListItemIcon>
         <InboxIcon />
       </ListItemIcon>
-      <ListItemText primary="Inbox" />
+      <ListItemText primary="Dashboard" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <StarIcon />
       </ListItemIcon>
-      <ListItemText primary="Starred" />
+      <ListItemText primary="Orders" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <SendIcon />
       </ListItemIcon>
-      <ListItemText primary="Send mail" />
+      <ListItemText primary="Bulk Operations" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <DraftsIcon />
       </ListItemIcon>
-      <ListItemText primary="Drafts" />
+      <ListItemText primary="Print Files" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <DraftsIcon />
+      </ListItemIcon>
+      <ListItemText primary="Logs" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <DraftsIcon />
+      </ListItemIcon>
+      <ListItemText primary="Product Types" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <DraftsIcon />
+      </ListItemIcon>
+      <ListItemText primary="Shops" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <DraftsIcon />
+      </ListItemIcon>
+      <ListItemText primary="Users" />
     </ListItem>
   </div>
 );

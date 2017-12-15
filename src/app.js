@@ -141,7 +141,7 @@ class ResponsiveDrawer extends React.Component {
             </Drawer>
           </Hidden>
           <main className={classes.content}>
-            <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+            <Typography noWrap>{'Account details and management functionality will go here.'}</Typography>
           </main>
         </div>
       </div>
