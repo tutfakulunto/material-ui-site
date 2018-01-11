@@ -15,6 +15,7 @@ import MenuIcon from 'material-ui-icons/Menu';
 import DialogsPage from './dialogsPage';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 import * as appStyles from './styles.scss';
+import AppRouter from './components/appRouter';
 
 const drawerWidth = 240;
 

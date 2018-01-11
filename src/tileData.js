@@ -7,6 +7,18 @@ import SendIcon from 'material-ui-icons/Send';
 import MailIcon from 'material-ui-icons/Mail';
 import DeleteIcon from 'material-ui-icons/Delete';
 import ReportIcon from 'material-ui-icons/Report';
+import history from './history';
+
+class AppLayout extends React.Component {
+  state = {
+    mobileMenuOpen: false
+  }
+
+  handleMenuNavigation = () => {
+    this.setState({mobileMenuOpen: false});
+    history.push(uri);
+  }
+}
 
 export const mailFolderListItems = (
   <div>
@@ -16,45 +28,15 @@ export const mailFolderListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button onClick={() => this.handleMenuNavigation('/languages')}>
       <ListItemIcon>
         <StarIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Languages" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <SendIcon />
-      </ListItemIcon>
-      <ListItemText primary="Bulk Operations" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Print Files" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Logs" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Product Types" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Shops" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
+        <UsersIcon />
       </ListItemIcon>
       <ListItemText primary="Users" />
     </ListItem>
