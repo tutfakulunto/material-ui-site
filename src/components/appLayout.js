@@ -12,7 +12,9 @@ import List, {
     ListItemText
 } from 'material-ui/List';
 import Button from 'material-ui/Button';
+import DashboardIcon from 'material-ui-icons/Dashboard';
 import LanguageIcon from 'material-ui-icons/Language';
+import LibraryBooksIcon from 'material-ui-icons/LibraryBooks';
 
 
 class AppLayout extends React.Component {

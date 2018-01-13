@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AppLayout from '../../components/appLayout';
-import DashboardIcon from 'material-ui-icons/ShowChart';
+import DashboardIcon from 'material-ui-icons/Dashboard';
 import shortid from 'shortid';
 
 class DashboardPage extends React.Component {

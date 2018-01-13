@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AppLayout from '../../components/appLayout';
-import LibraryBooksIcon from 'material-ui-icons/ShowChart';
+import LibraryBooksIcon from 'material-ui-icons/LibraryBooks';
 import shortid from 'shortid';
 
 class LessonsPage extends React.Component {

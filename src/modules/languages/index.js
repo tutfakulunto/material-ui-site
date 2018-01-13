@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AppLayout from '../../components/appLayout';
-import LanguageIcon from 'material-ui-icons/ShowChart';
+import LanguageIcon from 'material-ui-icons/Language';
 import shortid from 'shortid';
 
 class LanguagesPage extends React.Component {
