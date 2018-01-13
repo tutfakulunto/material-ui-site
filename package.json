@@ -11,7 +11,8 @@
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-router-dom": "^4.2.2",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
