@@ -14,7 +14,7 @@ import List, {
 import Button from 'material-ui/Button';
 import DashboardIcon from 'material-ui-icons/Dashboard';
 import LanguageIcon from 'material-ui-icons/Language';
-import LibraryBooksIcon from 'material-ui-icons/LibraryBooks';
+import LessonsIcon from 'material-ui-icons/LibraryBooks';
 
 
 class AppLayout extends React.Component {
@@ -31,29 +31,37 @@ class AppLayout extends React.Component {
         history.push(uri);
     }
 
-render() {
+  render() {
         const {classes, title} = this.props;
 
-  <div>
-    <ListItem button onClick={() => this.handleMenuNavigation('/')}>
-      <ListItemIcon>
-        <InboxIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    <ListItem button onClick={() => this.handleMenuNavigation('/languages')}>
-      <ListItemIcon>
-        <StarIcon />
-      </ListItemIcon>
-      <ListItemText primary="Languages" />
-    </ListItem>
-    <ListItem button onClick={() => this.handleMenuNavigation('/lessons')}>
-      <ListItemIcon>
-        <UsersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Lessons" />
-    </ListItem>
-  </div>
-};
+    return (
+      <div>
+        <AppBar className={classes.appBar}>
+            <ListItem button onClick={() => this.handleMenuNavigation('/')}>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+            <ListItem button onClick={() => this.handleMenuNavigation('/languages')}>
+              <ListItemIcon>
+                <StarIcon />
+              </ListItemIcon>
+              <ListItemText primary="Languages" />
+            </ListItem>
+            <ListItem button onClick={() => this.handleMenuNavigation('/lessons')}>
+              <ListItemIcon>
+                <UsersIcon />
+              </ListItemIcon>
+              <ListItemText primary="Lessons" />
+            </ListItem>
+          <main className={classes.content}>
+            {this.props.children}
+          </main>
+        </AppBar>
+      </div>
+    );
+  };
+}
 
 export default AppLayout;
