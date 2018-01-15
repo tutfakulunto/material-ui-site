@@ -14,6 +14,10 @@ import List, {
 import {withStyles, withTheme} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import Divider from 'material-ui/Divider';
+import Hidden from 'material-ui/Hidden';
+import MenuIcon from 'material-ui-icons/Menu';
+import IconButton from 'material-ui/IconButton';
 import DashboardIcon from 'material-ui-icons/Dashboard';
 import LanguageIcon from 'material-ui-icons/Language';
 import LessonsIcon from 'material-ui-icons/LibraryBooks';
@@ -46,12 +50,52 @@ const styles = (theme) => ({
             width: `calc(100% - ${drawerWidth}px)`
         }
     },
+    navIconHide: {
+        marginLeft: -12,
+        marginRight: 20,
+
+        [theme.breakpoints.up('md')]: {
+            display: 'none'
+        }
+    },
     title: {
         flex: 1,
 
         [theme.breakpoints.up('md')]: {
             marginLeft: 10
         }
+    },
+    drawer: {
+        height: '100%'
+    },
+    drawerContainer: {
+        height: `calc(100% + ${theme.spacing.unit * 6}px)`,
+
+        [theme.breakpoints.up('md')]: {
+            height: `calc(100% - ${theme.spacing.unit * 10.5}px)`,
+        }
+    },
+    drawerHeader: theme.mixins.toolbar,
+    drawerHeaderContent: {
+        textAlign: 'center',
+        lineHeight: '64px',
+        fontWeight: 500,
+        color: 'rgba(0, 0, 0, 0.54)'
+    },
+    drawerList: {
+        height: '100%'
+    },
+    drawerPaper: {
+        width: 250,
+
+        [theme.breakpoints.up('md')]: {
+            position: 'relative',
+            width: drawerWidth,
+            height: '100%'
+        }
+    },
+    nestedMenu: {
+        paddingLeft: theme.spacing.unit * 4
     },
     content: {
         backgroundColor: theme.palette.background.default,
@@ -98,34 +142,91 @@ class AppLayout extends React.Component {
   render() {
         const {classes, title} = this.props;
 
+        const drawer = (
+            <div className={classes.drawerContainer}>
+                <div className={classes.drawerHeader}>
+                    <Typography type="title" className={classes.drawerHeaderContent}>
+                        {config.APP_NAME}
+                    </Typography>
+                </div>
+                <Divider />
+                <List className={classes.drawerList}>
+                    <ListItem button onClick={() => this.handleMenuNavigation('/')}>
+                        <ListItemIcon>
+                            <DashboardIcon />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Dashboard" />
+                    </ListItem>
+                    <ListItem button onClick={() => this.handleMenuNavigation('/languages')}>
+                        <ListItemIcon>
+                            <LanguageIcon />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Languages" />
+                    </ListItem>
+                    <ListItem button onClick={() => this.handleMenuNavigation('/lessons')}>
+                        <ListItemIcon>
+                            <LessonsIcon />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Lessons" />
+                    </ListItem>
+                </List>
+            </div>
+        );
+
     return (
-      <div className={classes.appFrame}>
-        <AppBar className={classes.appBar}>
-            <ListItem button onClick={() => this.handleMenuNavigation('/')}>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
-            <ListItem button onClick={() => this.handleMenuNavigation('/languages')}>
-              <ListItemIcon>
-                <LanguageIcon />
-              </ListItemIcon>
-              <ListItemText primary="Languages" />
-            </ListItem>
-            <ListItem button onClick={() => this.handleMenuNavigation('/lessons')}>
-              <ListItemIcon>
-                <LessonsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Lessons" />
-            </ListItem>
-        </AppBar>
-        <main className={classes.content}>
-            {this.props.children}
-          </main>
-      </div>
-    );
-  };
+            <div className={classes.appFrame}>
+                <AppBar className={classes.appBar}>
+                    <Toolbar>
+                        <IconButton
+                            color="contrast"
+                            aria-label="open drawer"
+                            onClick={this.handleDrawerToggle}
+                            className={classes.navIconHide}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography className={classes.title} type="title" color="inherit" noWrap>
+                            {title}
+                        </Typography>
+                        <AccountMenu />
+                    </Toolbar>
+                </AppBar>
+                <Hidden mdUp>
+                    <Drawer
+                        type="temporary"
+                        anchor="left"
+                        open={this.state.mobileMenuOpen}
+                        className={classes.drawer}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                        onClose={this.handleDrawerToggle}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+                <Hidden smDown implementation="css">
+                    <Drawer
+                        type="permanent"
+                        open
+                        className={classes.drawer}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+                <main className={classes.content}>
+                    {this.props.children}
+                </main>
+            </div>
+        );
+    }
 }
+
 
 export default withTheme()(withStyles(styles)(AppLayout));
