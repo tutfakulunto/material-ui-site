@@ -10,6 +10,8 @@ import Paper from 'material-ui/Paper';
 class LanguagesPage extends React.Component {
     render() {
         
+        const data = '../api/fixtures/languages';
+
         function BasicTable(props) {
           const { classes } = props;
 
