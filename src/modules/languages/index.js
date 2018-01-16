@@ -8,6 +8,7 @@ import shortid from 'shortid';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import {withStyles, withTheme} from 'material-ui/styles';
+import languages from '/Users/scott/projects/react/api/fixtures/languages';
 
 class LanguagesPage extends React.Component {
     
@@ -22,6 +23,8 @@ class LanguagesPage extends React.Component {
     }
 
     render() {
+
+        const {languages} = this.state;
 
         return (
             <AppLayout title={[<LanguageIcon className="page-icon" key={shortid.generate()} />, 'Languages']}>
@@ -38,15 +41,15 @@ class LanguagesPage extends React.Component {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {languages.map(n => {
+                      {languages.map(language => {
                         return (
-                          <TableRow key={n.id}>
-                            <TableCell>{n.name}</TableCell>
-                            <TableCell numeric>{n.abbreviation}</TableCell>
-                            <TableCell numeric>{n.family}</TableCell>
-                            <TableCell numeric>{n.desription}</TableCell>
-                            <TableCell numeric>{n.createdAt}</TableCell>
-                            <TableCell numeric>n.updatedAt</TableCell>
+                          <TableRow key={language.id}>
+                            <TableCell>{language.name}</TableCell>
+                            <TableCell numeric>{language.abbreviation}</TableCell>
+                            <TableCell numeric>{language.family}</TableCell>
+                            <TableCell numeric>{language.desription}</TableCell>
+                            <TableCell numeric>{language.createdAt}</TableCell>
+                            <TableCell numeric>language.updatedAt</TableCell>
                           </TableRow>
                         );
                       })}
