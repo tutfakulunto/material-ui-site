@@ -28,7 +28,8 @@ const drawerWidth = 240;
 const styles = (theme) => ({
     appFrame: {
         display: 'flex',
-        height: '100%'
+        height: '100%',
+        width: '100%'
     },
     appBar: {
         position: 'fixed',
@@ -154,7 +155,6 @@ class AppLayout extends React.Component {
             <div className={classes.drawerContainer}>
                 <div className={classes.drawerHeader}>
                     <Typography type="title" className={classes.drawerHeaderContent}>
-                        {config.APP_NAME}
                     </Typography>
                 </div>
                 <Divider />
@@ -196,7 +196,6 @@ class AppLayout extends React.Component {
                         <Typography className={classes.title} type="title" color="inherit" noWrap>
                             {title}
                         </Typography>
-                        <AccountMenu />
                     </Toolbar>
                 </AppBar>
                 <Hidden mdUp>

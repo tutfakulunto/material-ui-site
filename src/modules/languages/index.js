@@ -1,11 +1,13 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import AppLayout from '../../components/appLayout';
 import LanguageIcon from 'material-ui-icons/Language';
 import shortid from 'shortid';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
+import {withStyles, withTheme} from 'material-ui/styles';
 
 class LanguagesPage extends React.Component {
     render() {
@@ -51,8 +53,8 @@ class LanguagesPage extends React.Component {
     }
 }
 
-BasicTable.propTypes = {
+LanguagesPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(LanguagesPage);
+export default withTheme()(withStyles(styles)(LanguagesPage));
