@@ -10,45 +10,51 @@ import Paper from 'material-ui/Paper';
 import {withStyles, withTheme} from 'material-ui/styles';
 
 class LanguagesPage extends React.Component {
+    
+    state = {languages: {}};
+
+    componentDidMount() {
+        this.fetchLanguagess()
+            .then(languages => this.setState({languages}))
+            .catch(error => {
+                this.setState({languages: {}});
+            });
+    }
+
     render() {
-        
-        const data = '../api/fixtures/languages';
 
-        function BasicTable(props) {
-
-            return (
-                <AppLayout title={[<LanguagesIcon className="page-icon" key={shortid.generate()} />, 'Languages']}>
-                    <Paper>
-                      <Table>
-                        <TableHead>
-                          <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell numeric>Abbreviation</TableCell>
-                            <TableCell numeric>Family</TableCell>
-                            <TableCell numeric>Description</TableCell>
-                            <TableCell numeric>Created At</TableCell>
-                            <TableCell numeric>Updated At</TableCell>
+        return (
+            <AppLayout title={[<LanguageIcon className="page-icon" key={shortid.generate()} />, 'Languages']}>
+                <Paper>
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Name</TableCell>
+                        <TableCell numeric>Abbreviation</TableCell>
+                        <TableCell numeric>Family</TableCell>
+                        <TableCell numeric>Description</TableCell>
+                        <TableCell numeric>Created At</TableCell>
+                        <TableCell numeric>Updated At</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {languages.map(n => {
+                        return (
+                          <TableRow key={n.id}>
+                            <TableCell>{n.name}</TableCell>
+                            <TableCell numeric>{n.abbreviation}</TableCell>
+                            <TableCell numeric>{n.family}</TableCell>
+                            <TableCell numeric>{n.desription}</TableCell>
+                            <TableCell numeric>{n.createdAt}</TableCell>
+                            <TableCell numeric>n.updatedAt</TableCell>
                           </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {data.map(n => {
-                            return (
-                              <TableRow key={n.id}>
-                                <TableCell>{n.name}</TableCell>
-                                <TableCell numeric>{n.abbreviation}</TableCell>
-                                <TableCell numeric>{n.family}</TableCell>
-                                <TableCell numeric>{n.desription}</TableCell>
-                                <TableCell numeric>{n.createdAt}</TableCell>
-                                <TableCell numeric>n.updatedAt</TableCell>
-                              </TableRow>
-                            );
-                          })}
-                        </TableBody>
-                      </Table>
-                    </Paper>
-                </AppLayout>
-            );
-        }
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                </Paper>
+            </AppLayout>
+        );
     }
 }
 
