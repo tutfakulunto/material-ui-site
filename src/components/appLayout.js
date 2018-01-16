@@ -235,5 +235,9 @@ class AppLayout extends React.Component {
     }
 }
 
+AppLayout.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
+};
 
 export default withTheme()(withStyles(styles)(AppLayout));
