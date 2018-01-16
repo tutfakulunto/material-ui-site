@@ -15,12 +15,11 @@ class LanguagesPage extends React.Component {
         const data = '../api/fixtures/languages';
 
         function BasicTable(props) {
-          const { classes } = props;
 
             return (
                 <AppLayout title={[<LanguagesIcon className="page-icon" key={shortid.generate()} />, 'Languages']}>
-                    <Paper className={classes.root}>
-                      <Table className={classes.table}>
+                    <Paper>
+                      <Table>
                         <TableHead>
                           <TableRow>
                             <TableCell>Name</TableCell>
@@ -53,8 +52,4 @@ class LanguagesPage extends React.Component {
     }
 }
 
-LanguagesPage.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withTheme()(withStyles(styles)(LanguagesPage));
+export default LanguagesPage;
