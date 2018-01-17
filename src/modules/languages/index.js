@@ -8,14 +8,14 @@ import shortid from 'shortid';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import {withStyles, withTheme} from 'material-ui/styles';
-import languages from '/Users/scott/projects/react/api/fixtures/languages';
+import api from '../../helpers/api';
 
 class LanguagesPage extends React.Component {
     
     state = {languages: {}};
 
     componentDidMount() {
-        this.fetchLanguagess()
+        this.fetchLanguages()
             .then(languages => this.setState({languages}))
             .catch(error => {
                 this.setState({languages: {}});
@@ -23,8 +23,11 @@ class LanguagesPage extends React.Component {
     }
 
     render() {
-
         const {languages} = this.state;
+        debugger;
+        if (languages.data && languages.data.length === 0) {
+            return null;
+        }
 
         return (
             <AppLayout title={[<LanguageIcon className="page-icon" key={shortid.generate()} />, 'Languages']}>
@@ -41,13 +44,13 @@ class LanguagesPage extends React.Component {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {languages.map(language => {
+                      {languages.data.map(language => {
                         return (
                           <TableRow key={language.id}>
                             <TableCell>{language.name}</TableCell>
                             <TableCell numeric>{language.abbreviation}</TableCell>
                             <TableCell numeric>{language.family}</TableCell>
-                            <TableCell numeric>{language.desription}</TableCell>
+                            <TableCell numeric>{language.description}</TableCell>
                             <TableCell numeric>{language.createdAt}</TableCell>
                             <TableCell numeric>language.updatedAt</TableCell>
                           </TableRow>
@@ -58,6 +61,10 @@ class LanguagesPage extends React.Component {
                 </Paper>
             </AppLayout>
         );
+    }
+
+    fetchLanguages = () => {
+        return api.get('http://localhost:3000/languages');
     }
 }
 
