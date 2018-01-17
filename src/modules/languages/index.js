@@ -24,8 +24,8 @@ class LanguagesPage extends React.Component {
 
     render() {
         const {languages} = this.state;
-        debugger;
-        if (languages.data && languages.data.length === 0) {
+
+        if (!languages.data) {
             return null;
         }
 
