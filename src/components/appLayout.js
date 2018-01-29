@@ -196,6 +196,7 @@ class AppLayout extends React.Component {
                         <Typography className={classes.title} type="title" color="inherit" noWrap>
                             {title}
                         </Typography>
+                        <a href="/auth/google">Sign in with Google</a>
                     </Toolbar>
                 </AppBar>
                 <Hidden mdUp>

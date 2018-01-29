@@ -2,6 +2,11 @@
   "name": "material-ui-app",
   "version": "1.0.0",
   "description": "Test app using Material UI.",
+  "proxy": {
+    "/auth/google": {
+      "target": "http://localhost:3000"
+    }
+  },
   "dependencies": {
     "history": "^4.7.2",
     "material-ui": "^1.0.0-beta.21",
