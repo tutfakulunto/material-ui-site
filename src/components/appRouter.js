@@ -13,8 +13,8 @@ class AppRouter extends React.Component {
         return (
             <Router history={history}>
                 <Switch>
-                    <Route exact getAuthToken={this.getAuthToken} path="/" component={LandingPage} />
-                    <Route exact getAuthToken={this.getAuthToken} path="/dashboard" component={DashboardPage} />
+                    <Route exact getAuthToken={this.getAuthToken} path="/landingPage" component={LandingPage} />
+                    <Route exact getAuthToken={this.getAuthToken} path="/" component={DashboardPage} />
                     <Route exact getAuthToken={this.getAuthToken} path="/languages" component={LanguagesPage} />
                     <Route exact getAuthToken={this.getAuthToken} path="/lessons" component={LessonsPage} />
                 </Switch>
