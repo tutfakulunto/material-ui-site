@@ -165,6 +165,12 @@ class AppLayout extends React.Component {
                         </ListItemIcon>
                         <ListItemText inset primary="Dashboard" />
                     </ListItem>
+                    <ListItem button onClick={() => this.handleMenuNavigation('/landingPage')}>
+                        <ListItemIcon>
+                            <LanguageIcon />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Landing Page" />
+                    </ListItem>
                     <ListItem button onClick={() => this.handleMenuNavigation('/languages')}>
                         <ListItemIcon>
                             <LanguageIcon />
