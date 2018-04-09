@@ -52,7 +52,7 @@ class LanguagesPage extends React.Component {
                             <TableCell numeric>{language.family}</TableCell>
                             <TableCell numeric>{language.description}</TableCell>
                             <TableCell numeric>{language.createdAt}</TableCell>
-                            <TableCell numeric>language.updatedAt</TableCell>
+                            <TableCell numeric>{language.updatedAt}</TableCell>
                           </TableRow>
                         );
                       })}
